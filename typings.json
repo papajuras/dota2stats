@@ -1,0 +1,5 @@
+{
+  "ambientDependencies": {
+    "mongodb": "github:DefinitelyTyped/DefinitelyTyped/mongodb/mongodb.d.ts#04a46a81d9ff12504800e02396189b1d2dc55171"
+  }
+}
