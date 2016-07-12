@@ -23,4 +23,38 @@ export class GenerateCombination {
             }
         }
     }
+    
+    generate5v5TestData() {
+        let numberList = [];
+        for (var i = 0; i < 82; i += 1) {
+            numberList.push(i);
+        }
+
+        this.getCombinations(numberList);
+
+        console.log('done')
+    }
+
+    private count: number = 0;
+    private result = [];
+
+    getCombinations(chars) {
+        this.doGenerate([], chars);
+    }
+
+    async doGenerate(prefix: Array, chars) {
+        if (prefix.length == 10) {
+            this.count += 1;
+            this.result.push(prefix);
+            console.log(this.result);
+            return;
+        }
+
+        if (this.count > 10) {
+            return;
+        }
+        for (var i = 0; i < chars.length; i++) {
+            await this.doGenerate(prefix.concat(chars[i]), chars.slice(i + 1));
+        }
+    }
 }

@@ -24,16 +24,17 @@ mongoClient.connect('mongodb://localhost:27017/dotastatsdb', (error, db) => {
         console.log(error);
     }
     
-    let dbUpdater = new DbHandler(db);
-    dbUpdater.initDb();
+    // let dbUpdater = new DbHandler(db);
+    // dbUpdater.initDb();
 
     var generateCombination = new GenerateCombination();
-    generateCombination.generate2v2(dbUpdater);
+    var any = generateCombination.generate5v5TestData();
+    console.log(any);
 
 
-    for (var i = 0; i < 25; i++) {
-        dbUpdater.saveRecord({wacek: 123});
-    }
+    // for (var i = 0; i < 25; i++) {
+    //     dbUpdater.saveRecord({wacek: 123});
+    // }
 
 });
 
